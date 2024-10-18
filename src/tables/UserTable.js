@@ -1,7 +1,7 @@
 import React from 'react'
 import './UserTable.css';
 
-const UserTable = () => {
+const UserTable = ({ users }) => {
   return (
     <table>
         <tr>
@@ -13,14 +13,16 @@ const UserTable = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Elmer</td>
-                    <td>ElmerGama</td>
-                    <td>
-                        <button className='mibutton'>boton</button>
-                    </td>
-                </tr>
-            </tbody>
+        {users.map(user => (
+          <tr key={user.id}>
+            <td>{user.name}</td>
+            <td>{user.username}</td>
+            <td>
+              <button className='button-styles'>Delete</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
         </tr>
     </table>
   )
