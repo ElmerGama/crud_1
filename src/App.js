@@ -45,11 +45,19 @@ function App() {
 
   const [CurrentUser, setCurrentUser] = useState(initialformstate);
 
+ // Función para eliminar un usuario
+ const deleteUser = (id) => {
+  // Filtrar la lista de usuarios y remover el usuario con el id correspondiente
+  const updatedUsers = users.filter(user => user.id !== id);
+  setUsers(updatedUsers);
+};
+
   return (
     <div className="App">
       <h1>CRUD DE USUARIOS</h1>
       <UserTable
       users={users}
+      deleteUser={deleteUser}
       />
     </div>
   );
